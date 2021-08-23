@@ -7,15 +7,15 @@ export default function Footer({ height }) {
     return styles
   }
   return (
-    <div className="flex p-5 bg-black text-white flex-col w-full" style={getStyle()}>
-      <div className="w-full flex border-b border-gray-600 flex-col sm:flex-row">
+    <div className="flex flex-col w-full p-5 text-white bg-black" style={getStyle()}>
+      <div className="flex flex-col w-full border-b border-gray-600 sm:flex-row">
         <div className="flex-1 pb-20 sm:pb-40">&nbsp;</div>
         <div className="flex-1 pb-5 sm:pb-40">Stay in the loop on CryptoArt and NFTs</div>
-        <div className="flex-1 text-gray-600 pb-10 sm:pb-40">Type your email here..</div>
+        <div className="flex-1 pb-10 text-gray-600 sm:pb-40">Type your email here..</div>
       </div>
-      <div className="w-full flex flex-col sm:flex-row pt-2">
-        <div className="flex-1 flex flex-col border-b border-gray-600 pb-10 sm:pb-20">
-          <div className="text-gray-500 text-sm">Links</div>
+      <div className="flex flex-col w-full pt-2 sm:flex-row">
+        <div className="flex flex-col flex-1 pb-10 border-b border-gray-600 sm:pb-20">
+          <div className="text-sm text-gray-500">Links</div>
           <div className="grid grid-cols-2 pt-3">
             <div>Trending</div>
             <div>About</div>
@@ -24,8 +24,8 @@ export default function Footer({ height }) {
             <div>News</div>
           </div>
         </div>
-        <div className="flex-1 flex flex-col border-b border-gray-600 pb-10 sm:pb-0">
-          <div className="text-gray-500 text-sm pt-2 sm:pt-0">For artists</div>
+        <div className="flex flex-col flex-1 pb-10 border-b border-gray-600 sm:pb-0">
+          <div className="pt-2 text-sm text-gray-500 sm:pt-0">For artists</div>
           <div className="grid grid-cols-2 pt-3">
             <div>Get started</div>
             <div>Tutorials</div>
@@ -33,8 +33,8 @@ export default function Footer({ height }) {
             <div>Support</div>
           </div>
         </div>
-        <div className="flex-1 flex flex-col border-b border-gray-600 pb-10 sm:pb-0">
-          <div className="text-gray-500 text-sm pt-2 sm:pt-0">Legal</div>
+        <div className="flex flex-col flex-1 pb-10 border-b border-gray-600 sm:pb-0">
+          <div className="pt-2 text-sm text-gray-500 sm:pt-0">Legal</div>
           <div className="grid grid-cols-2 pt-3">
             <div>Terms & Conditions</div>
             <div>Privacy Policy</div>
@@ -43,13 +43,13 @@ export default function Footer({ height }) {
           </div>
         </div>
       </div>
-      <div className="w-full flex pt-5 flex-col sm:flex-row mb-10">
+      <div className="flex flex-col w-full pt-5 mb-10 sm:flex-row">
         <div className="flex-1 pb-10 sm:pb-0">© 2021 Shoyu. All rights reserved.</div>
-        <div className="flex-1 flex flex-col sm:flex-row">
+        <div className="flex flex-col flex-1 sm:flex-row">
           <div className="pb-3 sm:pb-0">We use cookies for better service.</div>
           <div className="flex flex-row">
-            <div className="underline pl-0 sm:pl-3 cursor-pointer">Accept</div>
-            <div className="underline pl-3 cursor-pointer">Decline</div>
+            <div className="pl-0 underline cursor-pointer sm:pl-3">Accept</div>
+            <div className="pl-3 underline cursor-pointer">Decline</div>
           </div>
         </div>
         <div className="flex-1"></div>

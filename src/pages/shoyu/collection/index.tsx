@@ -14,19 +14,19 @@ export default function Collection() {
   return (
     <div className="flex flex-col">
       <Header height={64} balance={'1.704'} account={'levx.eth'} border={false} />
-      <div className="flex flex-col sm:flex-row relative p-10 sm:my-60">
+      <div className="relative flex flex-col p-10 sm:flex-row sm:my-60">
         <div className="absolute gradient-back">
           <Image src={GradientBack} height={475} alt="Gradient Back" />
         </div>
-        <div className="flex flex-col sm:flex-row w-full">
+        <div className="flex flex-col w-full sm:flex-row">
           <div className="flex-1">
-            <div className="flex cursor-pointer items-center">
+            <div className="flex items-center cursor-pointer">
               <ChevronLeftIcon width={20} height={20} />
               <div className="ml-2">Back</div>
             </div>
           </div>
-          <div className="flex-1 flex flex-col">
-            <div className="font-ivar text-5xl sm:text-7xl">United Visual Artists Experience art</div>
+          <div className="flex flex-col flex-1">
+            <div className="text-5xl font-ivar sm:text-7xl">United Visual Artists Experience art</div>
             <div className="flex mt-10">
               <div className="flex-1">
                 <div className="mb-10">
@@ -42,29 +42,29 @@ export default function Collection() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row pt-5 ml-5 sm:ml-20 mr-20 sm:mr-10">
+      <div className="flex flex-col pt-5 ml-5 mr-20 sm:flex-row sm:ml-20 sm:mr-10">
         <SimpleImageCard img={'test13'} year={2020} />
       </div>
-      <div className="flex flex-col sm:flex-row m-5 sm:m-10 sm:pt-5">
-        <div className="flex-1 text-3xl sm:text-5xl font-ivar flex items-center sm:mr-20 py-20 sm:py-0 ml-20">
+      <div className="flex flex-col m-5 sm:flex-row sm:m-10 sm:pt-5">
+        <div className="flex items-center flex-1 py-20 ml-20 text-3xl sm:text-5xl font-ivar sm:mr-20 sm:py-0">
           “I don’t want to set borders to anything I do as an artist.”
         </div>
         <div className="flex-1 mr-20 sm:mr-10">
           <SimpleImageCard img={'test15'} year={2020} />
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row ml-20 sm:ml-10 mr-5 sm:mr-96">
+      <div className="flex flex-col ml-20 mr-5 sm:flex-row sm:ml-10 sm:mr-96">
         <SimpleImageCard img={'test21'} year={2020} />
       </div>
-      <div className="flex flex-col sm:flex-row m-5 sm:m-10 sm:pt-5 sm:mb-20">
-        <div className="flex-1 sm:ml-20 mr-20 sm:mr-80 mb-5 sm:mb-0">
+      <div className="flex flex-col m-5 sm:flex-row sm:m-10 sm:pt-5 sm:mb-20">
+        <div className="flex-1 mb-5 mr-20 sm:ml-20 sm:mr-80 sm:mb-0">
           <SimpleImageCard img={'test22'} year={2020} />
         </div>
         <div className="flex-1 ml-20">
           <SimpleImageCard img={'test14'} year={2020} />
         </div>
       </div>
-      <div className="border-t border-gray-600 justify-between m-10 pt-10 hidden sm:flex">
+      <div className="justify-between hidden pt-10 m-10 border-t border-gray-600 sm:flex">
         <div>Hibiki’s work on auction</div>
         <div className="flex items-center cursor-pointer">
           <div>Explore more</div>
@@ -73,24 +73,24 @@ export default function Collection() {
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-600 justify-between m-5 pt-5 flex sm:hidden">Sort content:</div>
-      <div className="flex flex-col sm:grid sm:grid-cols-4 m-5 sm:m-10">
-        <div className="sm:mr-5 pt-5">
+      <div className="flex justify-between pt-5 m-5 border-t border-gray-600 sm:hidden">Sort content:</div>
+      <div className="flex flex-col m-5 sm:grid sm:grid-cols-4 sm:m-10">
+        <div className="pt-5 sm:mr-5">
           <ImageCard img={'test13'} timeframe={'29 hrs 35 mins'} creator={'creatorname'} price={355.55} />
         </div>
-        <div className="sm:mr-5 pt-5">
+        <div className="pt-5 sm:mr-5">
           <ImageCard img={'test06'} timeframe={'29 hrs 35 mins'} creator={'creatorname'} price={355.55} />
         </div>
-        <div className="sm:mr-5 pt-5">
+        <div className="pt-5 sm:mr-5">
           <ImageCard img={'test14'} timeframe={'29 hrs 35 mins'} creator={'creatorname'} price={355.55} />
         </div>
         <div className="pt-5">
           <ImageCard img={'test15'} timeframe={'29 hrs 35 mins'} creator={'creatorname'} price={355.55} />
         </div>
       </div>
-      <div className="flex flex-col sm:flex-row p-5 sm:p-10 sm:pb-40 border-b border-gray-600">
-        <div className="flex-1 border-t border-gray-600 pt-5 sm:mr-40 mt-10 sm:mt-0">
-          <div className="font-ivar text-3xl sm:text-5xl">Related creators</div>
+      <div className="flex flex-col p-5 border-b border-gray-600 sm:flex-row sm:p-10 sm:pb-40">
+        <div className="flex-1 pt-5 mt-10 border-t border-gray-600 sm:mr-40 sm:mt-0">
+          <div className="text-3xl font-ivar sm:text-5xl">Related creators</div>
           <div className="flex flex-col mt-10">
             <ProfileCard
               img={'avatar01'}
@@ -134,8 +134,8 @@ export default function Collection() {
             />
           </div>
         </div>
-        <div className="flex-1 border-t border-gray-600 pt-5 mt-10 sm:mt-0">
-          <div className="font-ivar text-3xl sm:text-5xl">Related collectors</div>
+        <div className="flex-1 pt-5 mt-10 border-t border-gray-600 sm:mt-0">
+          <div className="text-3xl font-ivar sm:text-5xl">Related collectors</div>
           <div className="flex flex-col mt-10">
             <ProfileCard
               img={'avatar06'}
