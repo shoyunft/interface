@@ -2,14 +2,13 @@ import { ApprovalState, useApproveCallback } from '../../../hooks/useApproveCall
 import { ArrowDown, Plus } from 'react-feather'
 import { AutoRow, RowBetween } from '../../../components/Row'
 import { ButtonConfirmed, ButtonError } from '../../../components/Button'
-import { ChainId, Currency, NATIVE, Percent, WNATIVE } from '@sushiswap/sdk'
+import { ChainId, Currency, NATIVE, Percent, WNATIVE, WNATIVE_ADDRESS } from '@sushiswap/sdk'
 import React, { useCallback, useMemo, useState } from 'react'
 import TransactionConfirmationModal, { ConfirmationModalContent } from '../../../modals/TransactionConfirmationModal'
 import { calculateGasMargin, calculateSlippageAmount } from '../../../functions/trade'
 import { useBurnActionHandlers, useBurnState, useDerivedBurnInfo } from '../../../state/burn/hooks'
 import { usePairContract, useRouterContract } from '../../../hooks/useContract'
 
-import { AddRemoveTabs } from '../../../components/NavigationTabs'
 import Alert from '../../../components/Alert'
 import { ArrowDownIcon } from '@heroicons/react/solid'
 import { AutoColumn } from '../../../components/Column'
@@ -709,7 +708,7 @@ export default function Remove() {
   )
 
   return (
-    <Container id="remove-liquidity-page"  className="py-4 space-y-4 md:py-8 lg:py-12" maxWidth="2xl">
+    <Container id="remove-liquidity-page" className="py-4 space-y-4 md:py-8 lg:py-12" maxWidth="2xl">
       <Head>
         <title>Remove Liquidity | Sushi</title>
         <meta key="description" name="description" content="Remove liquidity from the SushiSwap AMM" />
@@ -784,8 +783,8 @@ export default function Remove() {
                           <RowBetween className="text-sm">
                             {oneCurrencyIsETH ? (
                               <Link
-                                href={`/remove/${currencyA?.isNative ? WNATIVE[chainId].address : currencyIdA}/${
-                                  currencyB?.isNative ? WNATIVE[chainId].address : currencyIdB
+                                href={`/remove/${currencyA?.isNative ? WNATIVE_ADDRESS[chainId] : currencyIdA}/${
+                                  currencyB?.isNative ? WNATIVE_ADDRESS[chainId] : currencyIdB
                                 }`}
                               >
                                 <a className="text-baseline text-blue opacity-80 hover:opacity-100 focus:opacity-100 whitespace-nowrap">

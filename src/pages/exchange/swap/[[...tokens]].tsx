@@ -1,9 +1,17 @@
-import { ARCHER_RELAY_URI, ARCHER_ROUTER_ADDRESS, INITIAL_ALLOWED_SLIPPAGE } from '../../../constants'
+import { ARCHER_RELAY_URI, INITIAL_ALLOWED_SLIPPAGE } from '../../../constants'
+import {
+  ARCHER_ROUTER_ADDRESS,
+  ChainId,
+  Currency,
+  CurrencyAmount,
+  JSBI,
+  Token,
+  TradeType,
+  Trade as V2Trade,
+} from '@sushiswap/sdk'
 import { ApprovalState, useApproveCallbackFromTrade } from '../../../hooks/useApproveCallback'
 import { ArrowWrapper, BottomGrouping, SwapCallbackError } from '../../../features/swap/styleds'
-import { AutoRow, RowBetween, RowFixed } from '../../../components/Row'
 import { ButtonConfirmed, ButtonError } from '../../../components/Button'
-import { ChainId, Currency, CurrencyAmount, JSBI, Token, TradeType, Trade as V2Trade } from '@sushiswap/sdk'
 import Column, { AutoColumn } from '../../../components/Column'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { UseERC20PermitState, useERC20PermitFromTrade } from '../../../hooks/useERC20Permit'
@@ -29,6 +37,7 @@ import useWrapCallback, { WrapType } from '../../../hooks/useWrapCallback'
 import AddressInputPanel from '../../../components/AddressInputPanel'
 import { AdvancedSwapDetails } from '../../../features/swap/AdvancedSwapDetails'
 import AdvancedSwapDetailsDropdown from '../../../features/swap/AdvancedSwapDetailsDropdown'
+import Alert from '../../../components/Alert'
 import { ArrowDownIcon } from '@heroicons/react/outline'
 import Button from '../../../components/Button'
 import ConfirmSwapModal from '../../../features/swap/ConfirmSwapModal'
@@ -48,6 +57,7 @@ import TradePrice from '../../../features/swap/TradePrice'
 import Typography from '../../../components/Typography'
 import UnsupportedCurrencyFooter from '../../../features/swap/UnsupportedCurrencyFooter'
 import Web3Connect from '../../../components/Web3Connect'
+import { classNames } from '../../../functions'
 import { computeFiatValuePriceImpact } from '../../../functions/trade'
 import confirmPriceImpactWithoutFee from '../../../features/swap/confirmPriceImpactWithoutFee'
 import { maxAmountSpend } from '../../../functions/currency'
@@ -63,7 +73,6 @@ import { useRouter } from 'next/router'
 import { useSwapCallback } from '../../../hooks/useSwapCallback'
 import { useUSDCValue } from '../../../hooks/useUSDCPrice'
 import { warningSeverity } from '../../../functions/prices'
-import Alert from '../../../components/Alert'
 
 export default function Swap() {
   const { i18n } = useLingui()
@@ -114,7 +123,8 @@ export default function Swap() {
 
   // archer
   const archerRelay = chainId ? ARCHER_RELAY_URI?.[chainId] : undefined
-  const doArcher = archerRelay !== undefined && useArcher
+  // const doArcher = archerRelay !== undefined && useArcher
+  const doArcher = undefined
 
   // swap state
   const { independentField, typedValue, recipient } = useSwapState()
@@ -480,7 +490,9 @@ export default function Swap() {
               id="swap-currency-input"
             />
             <AutoColumn justify="space-between" className="py-3">
-              <AutoRow justify={isExpertMode ? 'space-between' : 'flex-start'} style={{ padding: '0 1rem' }}>
+              <div
+                className={classNames(isExpertMode ? 'justify-between' : 'flex-start', 'px-4 flex-wrap w-full flex')}
+              >
                 <button
                   className="z-10 -mt-6 -mb-6 rounded-full"
                   onClick={() => {
@@ -519,7 +531,7 @@ export default function Swap() {
                     </Button>
                   )
                 ) : null}
-              </AutoRow>
+              </div>
             </AutoColumn>
 
             <div>
@@ -566,7 +578,7 @@ export default function Swap() {
             </>
           )}
 
-          {showWrap ? null : (
+          {/* {showWrap ? null : (
             <div
               style={{
                 padding: showWrap ? '.25rem 1rem 0 1rem' : '0px',
@@ -574,7 +586,7 @@ export default function Swap() {
             >
               <div className="px-5 mt-1">{doArcher && userHasSpecifiedInputOutput && <MinerTip />}</div>
             </div>
-          )}
+          )} */}
           {/*
           {trade && (
             <div className="p-5 rounded bg-dark-800">
@@ -604,16 +616,18 @@ export default function Swap() {
                 {singleHopOnly && <div className="mb-1">{i18n._(t`Try enabling multi-hop trades`)}</div>}
               </div>
             ) : showApproveFlow ? (
-              <RowBetween>
+              <div>
                 {approvalState !== ApprovalState.APPROVED && (
                   <ButtonConfirmed
                     onClick={handleApprove}
                     disabled={approvalState !== ApprovalState.NOT_APPROVED || approvalSubmitted}
+                    size="lg"
                   >
                     {approvalState === ApprovalState.PENDING ? (
-                      <AutoRow gap="6px" justify="center">
-                        Approving <Loader stroke="white" />
-                      </AutoRow>
+                      <div className="flex items-center justify-center h-full space-x-2">
+                        <div>Approving</div>
+                        <Loader stroke="white" />
+                      </div>
                     ) : (
                       i18n._(t`Approve ${currencies[Field.INPUT]?.symbol}`)
                     )}
@@ -650,7 +664,7 @@ export default function Swap() {
                       : i18n._(t`Swap`)}
                   </ButtonError>
                 )}
-              </RowBetween>
+              </div>
             ) : (
               <ButtonError
                 onClick={() => {

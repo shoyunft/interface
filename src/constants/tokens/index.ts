@@ -40,6 +40,7 @@ export const MATIC: { [key: string]: Token } = {
   FXS: new Token(ChainId.MATIC, '0x3e121107F6F22DA4911079845a470757aF4e1A1b', 18, 'FXS', 'Frax Share'),
   DMAGIC: new Token(ChainId.MATIC, '0x61dAECaB65EE2A1D5b6032df030f3fAA3d116Aa7', 18, 'DMAGIC', 'Dark Magic'),
   DRAX: new Token(ChainId.MATIC, '0x1Ba3510A9ceEb72E5CdBa8bcdDe9647E1f20fB4b', 18, 'DRAX', 'Drax'),
+  AXMATIC: new Token(ChainId.MATIC, '0x1221591c1d77A9c334aBb0fe530ae6EE3aF51Af9', 18, 'AXMATIC', 'axMATIC'),
 }
 
 export const OKEX: { [key: string]: Token } = {
@@ -180,6 +181,23 @@ export const LFBTC = new Token(
 )
 export const CVXCRV = new Token(ChainId.MAINNET, '0x62B9c7356A2Dc64a1969e19C23e4f579F9810Aa7', 18, 'cvxCRV', 'cvxCRV')
 export const CRV = new Token(ChainId.MAINNET, '0xD533a949740bb3306d119CC777fa900bA034cd52', 18, 'CRV', 'Curve')
+
+export const CRXSUSHI = new Token(
+  ChainId.MAINNET,
+  '0x228619cca194fbe3ebeb2f835ec1ea5080dafbb2',
+  8,
+  'crXSUSHI',
+  'Cream SushiBar'
+)
+export const AXSUSHI = new Token(
+  ChainId.MAINNET,
+  '0xf256cc7847e919fac9b808cc216cac87ccf2f47a',
+  18,
+  'aXSUSHI',
+  'Aave interest bearing XSUSHI'
+)
+
+export const DPI = new Token(ChainId.MAINNET, '0x1494CA1F11D487c2bBe4543E90080AeBa4BA3C2b', 18, 'DefiPulse', 'DPI')
 
 type ChainTokenMap = {
   readonly [chainId in ChainId]?: Token

@@ -1,0 +1,39 @@
+@import './variables.scss';
+
+.laptop-container {
+    width: $laptop;
+}
+
+.mobile-container {
+    width: $smartphoneSmall;
+}
+
+.color-picker {
+    background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+}
+
+.keyword-input {
+    background: transparent;
+    color: white;
+    text-align: left;
+    width: 100%;
+    &:focus {
+        outline: none;
+    }
+}
+
+.font-ivar {
+    font-family: 'Ivar Display';
+}
+
+.gradient-back {
+    z-index: -1;
+    height: 475px;
+    left: -221px;
+    top: -64px;
+    filter: blur(200px);
+}
+
+.gray-back {
+    background-color: #F1F0EC;
+}

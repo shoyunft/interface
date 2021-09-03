@@ -10,7 +10,6 @@ import { currencyId, maxAmountSpend } from '../../../functions/currency'
 import { useDerivedMintInfo, useMintActionHandlers, useMintState } from '../../../state/mint/hooks'
 import { useExpertModeManager, useUserSlippageToleranceWithDefault } from '../../../state/user/hooks'
 
-import { AddRemoveTabs } from '../../../components/NavigationTabs'
 import Alert from '../../../components/Alert'
 import { AutoColumn } from '../../../components/Column'
 import { BigNumber } from '@ethersproject/bignumber'
@@ -140,6 +139,9 @@ export default function Add() {
     if (!chainId || !library || !account || !routerContract) return
 
     const { [Field.CURRENCY_A]: parsedAmountA, [Field.CURRENCY_B]: parsedAmountB } = parsedAmounts
+
+    console.log({ parsedAmountA, parsedAmountB, currencyA, currencyB, deadline })
+
     if (!parsedAmountA || !parsedAmountB || !currencyA || !currencyB || !deadline) {
       return
     }
@@ -321,7 +323,7 @@ export default function Add() {
         />
       </Head>
 
-      <Container id="add-liquidity-page"  className="py-4 space-y-6 md:py-8 lg:py-12" maxWidth="2xl">
+      <Container id="add-liquidity-page" className="py-4 space-y-6 md:py-8 lg:py-12" maxWidth="2xl">
         <div className="flex items-center justify-between px-4 mb-5">
           <NavLink href="/pool">
             <a className="flex items-center space-x-2 text-base font-medium text-center cursor-pointer text-secondary hover:text-high-emphesis">

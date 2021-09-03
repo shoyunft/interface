@@ -1,5 +1,10 @@
 @tailwind base;
 
+/* @import '@fontsource/dm-sans/index.css';
+@import 'react-virtualized/styles.css';
+@import 'react-tabs/style/react-tabs.css';
+@import 'rc-slider/assets/index.css'; */
+
 @import './variables.css';
 
 @tailwind components;
@@ -51,6 +56,32 @@ button:focus {
 input:focus {
   box-shadow: none;
   outline: none;
+}
+
+.color-picker {
+  background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+}
+
+.keyword-input {
+  background: transparent;
+  color: white;
+  text-align: left;
+  width: 100%;
+  &:focus {
+      outline: none;
+  }
+}
+
+.gradient-back {
+  z-index: -1;
+  height: 475px;
+  left: -221px;
+  top: -64px;
+  filter: blur(200px);
+}
+
+.gray-back {
+  background-color: #F1F0EC;
 }
 
 /* *::-webkit-scrollbar {
